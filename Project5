@@ -1,0 +1,16 @@
+#include <iostream>
+#include <functional>
+#include "Point3d.h"
+#include "Entity.h"
+#include <vector>
+int main()
+{
+	std::vector<Entity> myEntities{};
+	myEntities.resize(5);
+	myEntities = Entity::generateEntities(5);
+
+	for (std::size_t index{0}; index < myEntities.size(); ++index)
+	{
+		myEntities[index].printEntityStats();
+	}
+}
