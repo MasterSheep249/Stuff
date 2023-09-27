@@ -5,12 +5,23 @@
 #include <vector>
 int main()
 {
-	std::vector<Entity> myEntities{};
-	myEntities.resize(5);
-	myEntities = Entity::generateEntities(5);
-
-	for (std::size_t index{0}; index < myEntities.size(); ++index)
+	std::vector<Entity> myEntity{Entity()};
+	std::vector<Entity> entities{Entity()};
+	myEntity[0].printEntityStats();
+	std::cout << '\n';
+	entities[0].printEntityStats();
+	std::cout << '\n';
+	if (myEntity[0].checkCollisions(entities) && entities[0].checkCollisions(myEntity))
 	{
-		myEntities[index].printEntityStats();
+		myEntity[0].deleteEntity();
+		std::cout << '\n';
+		entities[0].deleteEntity();
+	}
+	if (myEntity[0].checkCollisions(entities) && entities[0].checkCollisions(myEntity))
+	{
+		myEntity[0].deleteEntity();
+		std::cout << '\n';
+		entities[0].deleteEntity();
 	}
 }
+
